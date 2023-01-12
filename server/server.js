@@ -22,9 +22,7 @@ app.get('/', async (req, res) => {
 
 app.post('/', async (req, res) => {
     try {
-
         const prompt = req.body.prompt;
-
         const response = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: `${prompt}`,
@@ -39,7 +37,7 @@ app.post('/', async (req, res) => {
         })
     } catch (error) {
         console.log(error);
-        res.status(500).send({error})
+        res.status(500).send({test_error:"test",error})
     }
 })
 
